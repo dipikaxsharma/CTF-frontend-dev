@@ -64,9 +64,12 @@ function MenteeActivityDashboard() {
             <div key={m.id} className="tilt-parent">
               <button
                 onClick={() => setSelected(m)}
-                className={`tilt-card w-full p-3 rounded flex flex-col text-left cursor-pointer ${
-                  selected.id === m.id ? 'bg-panel-navy ring-1 ring-signal-amber glow-active' : 'hover:bg-panel-navy/60'
+                className={`tilt-card w-full p-3 rounded-2xl flex flex-col text-left cursor-pointer ${
+                  selected.id === m.id ? 'bg-panel-navy glow-active' : 'hover:bg-panel-navy/60'
                 }`}
+                style={selected.id === m.id ? {
+                  boxShadow: '0 0 28px 6px rgba(232,163,61,0.28), 0 0 8px 1px rgba(232,163,61,0.35)',
+                } : undefined}
               >
                 <div className="tilt-content flex items-center gap-2 mb-1">
                   <div className="tilt-badge w-6 h-6 rounded-full bg-white/10 flex items-center justify-center text-[10px]">
