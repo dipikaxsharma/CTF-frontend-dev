@@ -1,9 +1,21 @@
+import { Routes, Route } from 'react-router-dom'
+import MenteeActivityDashboard from './components/MenteeActivityDashboard'
+import LearningHub from './components/LearningHub'
+import CareerPathway from './components/CareerPathway'
+import NavRail from './components/NavRail'
+import CtfHero from './components/CtfHero'
+
 function App() {
   return (
-    <div className="min-h-screen bg-ink-navy flex items-center justify-center">
-      <div className="bg-panel-navy rounded-lg p-8 text-center">
-        <h1 className="font-display text-2xl text-parchment mb-2">MU CyberClinic</h1>
-        <p className="font-body text-sm text-hub-sage">Tailwind + design tokens are working</p>
+    <div className="h-screen flex bg-ink-navy text-parchment font-body overflow-hidden">
+      <NavRail />
+      <div className="flex-grow overflow-hidden">
+        <Routes>
+          <Route path="/" element={<CtfHero />} />
+          <Route path="/dashboard" element={<MenteeActivityDashboard />} />
+          <Route path="/hub" element={<LearningHub />} />
+          <Route path="/pathway" element={<CareerPathway />} />
+        </Routes>
       </div>
     </div>
   )

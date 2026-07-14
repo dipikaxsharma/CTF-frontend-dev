@@ -17,3 +17,114 @@ html, body, #root {
   height: 100%;
   margin: 0;
 }
+
+.tilt-parent {
+  perspective: 900px;
+  perspective-origin: 50% 50%;
+}
+
+.tilt-card {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.45s ease;
+}
+
+.tilt-parent:hover .tilt-card {
+  transform: rotate3d(1, 1, 0, 10deg);
+  box-shadow: 0 20px 40px -10px rgba(232, 163, 61, 0.25);
+}
+
+.tilt-badge {
+  transform: translate3d(0, 0, 20px);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.tilt-parent:hover .tilt-badge {
+  transform: translate3d(0, 0, 45px);
+}
+
+.tilt-content {
+  transform: translate3d(0, 0, 12px);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.tilt-parent:hover .tilt-content {
+  transform: translate3d(0, 0, 28px);
+}
+
+@keyframes wire-flow {
+  to { stroke-dashoffset: -24; }
+}
+
+.pathway-wire-active {
+  stroke-dasharray: 8 6;
+  animation: wire-flow 1s linear infinite;
+  filter: drop-shadow(0 0 4px rgba(232, 163, 61, 0.6));
+}
+
+@keyframes node-breathe {
+  0%, 100% { filter: drop-shadow(0 0 6px rgba(232, 163, 61, 0.4)); }
+  50% { filter: drop-shadow(0 0 14px rgba(232, 163, 61, 0.7)); }
+}
+
+.pathway-node-active {
+  animation: node-breathe 2.4s ease-in-out infinite;
+  cursor: pointer;
+}
+
+.pathway-node-locked {
+  cursor: default;
+}
+
+/* Glow pulse for any "active" state (selected tab, active nav icon, solved item) */
+@keyframes glow-pulse-amber {
+  0%, 100% { box-shadow: 0 0 6px rgba(232, 163, 61, 0.3); }
+  50% { box-shadow: 0 0 16px rgba(232, 163, 61, 0.6); }
+}
+.glow-active {
+  animation: glow-pulse-amber 2.2s ease-in-out infinite;
+}
+
+@keyframes glow-pulse-sage {
+  0%, 100% { box-shadow: 0 0 6px rgba(111, 168, 143, 0.3); }
+  50% { box-shadow: 0 0 16px rgba(111, 168, 143, 0.6); }
+}
+.glow-active-sage {
+  animation: glow-pulse-sage 2.2s ease-in-out infinite;
+}
+
+/* Flowing underline for active tabs/nav */
+@keyframes underline-flow {
+  0% { background-position: 0% 0; }
+  100% { background-position: 200% 0; }
+}
+.flow-underline {
+  background-image: linear-gradient(90deg, #E8A33D, #F5CB8A, #E8A33D);
+  background-size: 200% 100%;
+  animation: underline-flow 2s linear infinite;
+}
+
+@keyframes flag-wave {
+  0%, 100% { transform: skewY(0deg) rotate(0deg); }
+  25% { transform: skewY(3deg) rotate(1deg); }
+  75% { transform: skewY(-3deg) rotate(-1deg); }
+}
+
+.flag-buffer-icon {
+  animation: flag-wave 1.4s ease-in-out infinite;
+  transform-origin: bottom left;
+}
+
+@keyframes flag-pole-glow {
+  0%, 100% { filter: drop-shadow(0 0 4px rgba(232, 163, 61, 0.4)); }
+  50% { filter: drop-shadow(0 0 10px rgba(232, 163, 61, 0.7)); }
+}
+
+.flag-buffer-glow {
+  animation: flag-pole-glow 1.4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
