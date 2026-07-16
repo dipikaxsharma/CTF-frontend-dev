@@ -1,8 +1,10 @@
 import { Link, useLocation } from 'react-router-dom'
-import { Home, Flag, BookOpen, Route as RouteIcon, ShieldCheck } from 'lucide-react'
+import { Home, Flag, BookOpen, Route as RouteIcon, ShieldCheck, GraduationCap, ClipboardList } from 'lucide-react'
 
 const navItems = [
   { to: '/', label: 'Home', Icon: Home },
+  { to: '/survey', label: 'Survey', Icon: ClipboardList },
+  { to: '/learn', label: 'Learn', Icon: GraduationCap },
   { to: '/dashboard', label: 'CTF', Icon: Flag },
   { to: '/hub', label: 'Hub', Icon: BookOpen },
   { to: '/pathway', label: 'Path', Icon: RouteIcon },
